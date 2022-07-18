@@ -1,9 +1,11 @@
 from enum import Enum
 import collections
 
+
 class AliveStatus(Enum):
     Deceased = 0
     Alive = 1
+
 
 class Person:
     def __init__(self):
