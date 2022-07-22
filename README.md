@@ -23,7 +23,6 @@ Rectangle class must also have the following methods:
 Declare a class called **Square** 
 * This class must inherit from the Rectangle class.
 
-
 ```python
 import shapes
 rect = shapes.Rectangle(2, 4)
