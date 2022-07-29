@@ -73,7 +73,14 @@ class Student(Person):
 
 
 class ZipCodeStudent(Student):
-    pass
+    def __init__(self, college, first_name, last_name, dob, status):
+        super().__init__(first_name, last_name, dob, status)
+        person_arr = super().person_arr
+        student_id = {'Student_': s_id}
+        # college_name = {'university': college}
+        person_arr.update(student_id)
+        # college_name = "University"
+    # pass
 
 
 class CollegeStudent(Student):
@@ -86,13 +93,19 @@ class CollegeStudent(Student):
 
 
 class Classroom:
-    student_dict = {'student_tuple': 0}
+    student_id = 0
+    student_dict = {'student_name': student_id, }
     # 0 should eventually be student ID
+    teach_id = 0
+    teach_dict = {}
 
     def __init__(self):
         new_class = Classroom()
 
-    def add_instructor(self):
+        # 'teacher_name': teach_id,
+
+    def add_instructor(self, teach_id):
+        # self.teach_dict.append()
         pass
 
     def remove_instructor(self):
@@ -105,8 +118,10 @@ class Classroom:
         pass
 
     def print_instructors(self):
+        print(self.teach_dict)
         pass
 
     def print_students(self):
+        print(self.student_dict)
         pass
 

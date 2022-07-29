@@ -127,14 +127,27 @@ class FileReaderTest(unittest.TestCase):
         pass
 
     def test_print_instructors(self):
+        # test case of teachers
+        test_cases = []
+
+        expected_results = []
+        for school_room in test_cases:
+            #     with self.subTest()
+            expected_results[school_room] = gradebook.Classroom.print_instructors(test_cases[school_room])
+        self.assertEquals(test_cases, expected_results)
+        # pass
         pass
 
-    def test_list_instructors(self):
-        pass
+    # def test_list_instructors(self):
+    #     pass
 
     def test_print_students(self):
-        pass
+        test_cases = []
+        expected_results = []
+        for school_room in test_cases:
+            #     with self.subTest()
+            expected_results[school_room] = gradebook.Classroom.print_students(test_cases[school_room])
+        self.assertEquals(test_cases, expected_results)
+        # pass
 
-    def print_students(self):
-        pass
 
