@@ -8,23 +8,29 @@ Migrated from PythonFundamentals.Exercises.Part8
 Use the below fileReader Test class to work develop framework for 
 """
 
-class FileReaderTest(unittest.TestCase):
+
+class GradebookTest(unittest.TestCase):
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_create_person(self, mock_stdout):
         test_cases = [
             (
-                "my_awesome_file.txt",
-                "IF YOU ARE SEEING THIS ON YOUR CONSOLE,\n"
-                "THAT MEANS YOUR PROGRAM WORKED AS EXPECTED.\n"
-                "WHY AM I YELLING???"
+                (),
+                (),
+                (),
+                ()
             )
-        ]
-        for file_path, expected in test_cases:
-            with self.subTest(f"{file_path}"):
-                file_reader.reckless_file_reader(file_path)
-                actual = mock_stdout.getvalue()
+        ]  # updated with tuples for names
+        for test_person, expected in test_cases:
+            with self.subTest(f"{test_person}"):
+                expected = {} # person array of person details
+
+                actual = gradebook.Person(test_cases[test_person])
                 self.assertEqual(expected, actual)
+                # - format for nested test case
+                # file_reader.reckless_file_reader(file_path)
+                # actual = mock_stdout.getvalue()
+                # self.assertEqual(expected, actual)
 
     def test_update_Person_first_name(self):
         test_cases = [
@@ -36,7 +42,7 @@ class FileReaderTest(unittest.TestCase):
                 with self.assertRaises(expected):
                     file_reader.reckless_file_reader(file_path)
 
-    @unittest.skip("Useless test. This exists simply to trigger and demo the function under test.")
+    # @unittest.skip("Useless test. This exists simply to trigger and demo the function under test.")
     def test_update_Person_last_name(self):
         with self.assertRaises(PermissionError):
             file_reader.quick_way_to_get_fired("locked_out_file.txt")
@@ -110,6 +116,8 @@ class FileReaderTest(unittest.TestCase):
                 )
 
     def test_create_classrom(self):
+        test_classroom = gradebook.Classroom()
+
         with patch('file_reader.process_file') as cm:
             file_reader.better_file_reader("my_awesome_file.txt")
         cm.assert_called_once()
