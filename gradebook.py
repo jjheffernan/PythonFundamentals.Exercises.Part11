@@ -52,6 +52,8 @@ class PersonMixin:
 
 
 class Instructor(Person, PersonMixin):
+    teach_id = {'instructor_id': int, 'teacher_name': str}
+
     def __init__(self, instructor_id, first_name, last_name, dob, status):
         super().__init__(first_name, last_name, dob, status)
         person_arr = super().person_arr
@@ -93,28 +95,42 @@ class CollegeStudent(Student):
 
 
 class Classroom:
+    student_name = ''
     student_id = 0
-    student_dict = {'student_name': student_id, }
+    student_dict = {'student_name': student_name, 'student_id': student_id}
     # 0 should eventually be student ID
+    teacher_name = ''
     teach_id = 0
-    teach_dict = {}
+    teach_dict = {'teacher_name': teacher_name, 'teacher_id': teach_id}
+    class_address = 0
 
     def __init__(self):
-        new_class = Classroom()
+        new_class = Classroom()  # because nothing happens there is an error here.
+        self.class_address += 1
+        class_id = self.class_address
+        self.teach_dict.update()
+        self.student_dict.update()
 
         # 'teacher_name': teach_id,
 
-    def add_instructor(self, teach_id):
-        # self.teach_dict.append()
+    def add_instructor(self, teaching_id, teacher_name):
+        self.teach_dict['teacher_id'] = teaching_id
+        self.teach_dict['teacher_name'] = teacher_name
+        # Instructor.teach_id
+        return
         pass
 
-    def remove_instructor(self):
+    def remove_instructor(self, teach_id):
+        self.teach_dict.pop(teach_id)
         pass
 
-    def add_student(self):
+    def add_student(self, student_name, student_id):
+        self.student_dict['student_name'] = student_name
+        self.student_dict['student_id'] = student_id
         pass
 
-    def remove_student(self):
+    def remove_student(self, student_id):
+        self.student_dict.pop(student_id)
         pass
 
     def print_instructors(self):

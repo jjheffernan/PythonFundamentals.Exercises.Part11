@@ -11,19 +11,27 @@ Use the below fileReader Test class to work develop framework for
 
 class GradebookTest(unittest.TestCase):
 
+    def setUp(self) -> None:
+        pass
+
     # @patch('sys.stdout', new_callable=StringIO)
+    # @classmethod
     def test_create_person(self, mock_stdout):
+        # person array format
+        # self.person_arr = {
+        #             'firstname': first_name,
+        #             'lastname': last_name,
+        #             'dateofbirth': dob,
+        #             'status': AliveStatus.Alive}
         test_cases = [
             (
                 (),
                 (),
-                (),
-                ()
             )
         ]  # updated with tuples for names
         for test_person, expected in test_cases:
             with self.subTest(f"{test_person}"):
-                expected = {} # person array of person details
+                expected = {}  # person array of person details
 
                 actual = gradebook.Person(test_cases[test_person])
                 self.assertEqual(expected, actual)
@@ -119,6 +127,7 @@ class GradebookTest(unittest.TestCase):
                     self.assertEqual(expected, actual)
 
     # @patch('sys.stdout', new_callable=StringIO)
+    # @classmethod
     def test_create_Instructor(self, mock_stdout):
         def test_create_person(self, mock_stdout):
             test_cases = [
@@ -137,6 +146,7 @@ class GradebookTest(unittest.TestCase):
                     self.assertEqual(expected, actual)
 
     # @patch('sys.stdout', new_callable=StringIO)
+    # @classmethod
     def test_create_Zipcoder(self, mock_stdout):
         def test_create_person(self, mock_stdout):
             test_cases = [
@@ -155,6 +165,7 @@ class GradebookTest(unittest.TestCase):
                     self.assertEqual(expected, actual)
 
     # @patch('sys.stdout', new_callable=StringIO)
+    # @classmethod
     def test_test_create_college_student(self, mock_stdout):
         def test_create_person(self, mock_stdout):
             test_cases = [
@@ -175,6 +186,7 @@ class GradebookTest(unittest.TestCase):
 
 class ClassRoomTest(unittest.TestCase):
 
+    # @classmethod
     def test_create_classrom(self):
         test_classroom = gradebook.Classroom()
         test_cases = [
@@ -227,3 +239,5 @@ class ClassRoomTest(unittest.TestCase):
         # pass
 
 
+if __name__ == '__main__':
+    unittest.main()
